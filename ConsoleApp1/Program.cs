@@ -16,13 +16,22 @@ namespace ConsoleApp1
             Console.ReadLine();
 
         }
-        static void Download()
+        static async void Download()
         {
-            Task.Run(() =>
+            await Network.Download();
+            Console.WriteLine("Download Complete");
+
+        }
+    }
+    class Network
+    {
+        static public Task Download()
+        {
+            return Task.Run(() =>
             {
                 Thread.Sleep(3000); // Seconds
-                Console.WriteLine("Download Complete");
             });
         }
     }
 }
+
